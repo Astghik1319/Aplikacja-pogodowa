@@ -6,8 +6,7 @@ namespace MyFixIt.Logging
 {
     internal class Logger : ILogger
     {
-        //
-        // Warning - trace information within the application 
+
 
         public void Information(string message)
         {
@@ -25,8 +24,6 @@ namespace MyFixIt.Logging
             Trace.TraceInformation(string.Format(fmt, vars) + ";Exception Details={0}", ExceptionUtils.FormatException(exception, includeContext:true));
         }
 
-        //
-        // Warning - trace warnings within the application 
 
         public void Warning(string message)
         {
@@ -44,8 +41,7 @@ namespace MyFixIt.Logging
             Trace.TraceWarning(string.Format(fmt, vars) + ";Exception Details={0}", ExceptionUtils.FormatException(exception, includeContext:true));
         }
 
-        //
-        // Error - trace fatal errors within the application 
+
 
         public void Error(string message)
         {
@@ -63,9 +59,7 @@ namespace MyFixIt.Logging
             Trace.TraceError(string.Format(fmt, vars) + ";Exception Details={0}", ExceptionUtils.FormatException(exception, includeContext:true));
         }
 
-        //
-        // TraceAPI - trace inter-service calls (including latency)
-
+  
         public void TraceApi(string componentName, string method, TimeSpan timespan)
         {
             TraceApi(componentName, method, timespan, "");
